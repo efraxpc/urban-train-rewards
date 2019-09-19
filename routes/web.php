@@ -21,4 +21,10 @@ Route::get('/about', function()
 });
 
 Route::get('/create/reward','RewardController@create');
-Route::get('/rewards', 'RewardController@index');
+Route::get('/rewards', 'RewardController@getIndex');
+Route::get('/rewards/data', 'RewardController@anyData');
+Route::get('/create/reward','RewardController@create');
+Route::post('/create/reward','RewardController@store');
+Route::get('/edit/reward/{id}','RewardController@edit');
+Route::post('/edit/reward/{id}','RewardController@update');
+Route::get('/delete/reward/{id}','RewardController@destroy');

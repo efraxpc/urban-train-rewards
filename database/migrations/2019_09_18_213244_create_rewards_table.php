@@ -17,8 +17,8 @@ class CreateRewardsTable extends Migration
         Schema::create('rewards', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reward_name');
-            $table->string('reward_description');
-            $table->string('reward_image');
+            $table->text('reward_description');
+            $table->string('reward_image')->nullable();
             $table->string('reward_worth');
             $table->unsignedBigInteger('reward_type_id');
             $table->foreign('reward_type_id')->references('id')->on('rewards_type');

@@ -10,15 +10,29 @@ class Reward extends Model
         'reward_name', 'reward_description', 'reward_image', 'reward_worth', 'reward_type_id'
     ];
 
-    public function saveTicket($data)
+    public function saveReward($data,$file_name)
     {
         $this->reward_name = $data['reward_name'];
         $this->reward_description = $data['reward_description'];
-        $this->reward_image = $data['reward_image'];
+        $this->reward_image = $file_name;
         $this->reward_worth = $data['reward_worth'];
-        $this->reward_type_id = $data['reward_type_id'];
+        $this->reward_type_id = $data['reward_type'];
         $this->save();
+
         return 1;
+    }
+    public function updateReward($data)
+    {
+            $reward = $this->find($data['id']);
+            $reward->reward_name = $data['reward_name'];
+            $reward->reward_description = $data['reward_description'];
+            $reward->reward_worth = $data['reward_worth'];
+            $reward->reward_type_id = $data['reward_type'];
+            if(isset($data['reward_image'])){
+                $reward->reward_image = $data['reward_image'];
+            }
+            $reward->save();
+            return 1;
     }
 }
 
