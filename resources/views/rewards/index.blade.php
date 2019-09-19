@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row mb-2">
         <div class="col-12">
-                <button type="button" class="btn btn-primary">New</button>
+                <a role="button" class="btn btn-primary" href="{{ url('/create/reward') }}"">New</a>
         </div>
     </div>
     <div class="row">

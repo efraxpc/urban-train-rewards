@@ -26,7 +26,7 @@ class RewardController extends Controller
             ->get();
             return Datatables::of($rewards)
             ->addColumn('action', function ($reward) {
-                return '<a href="/edit/reward/'.$reward->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/delete/reward/'.$reward->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
+                return '<a href="/edit/reward/'.$reward->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/delete/reward/'.$reward->id.'" class="btn btn-xs btn-danger m-2"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
             })
             ->make(true);
         }
@@ -99,9 +99,3 @@ class RewardController extends Controller
         return redirect('/rewards')->with('success', 'Reward has been deleted!!');
     }
 }
-
-// 'reward_name'=>'required',
-// 'reward_description'=> 'required',
-// 'reward_image'=> 'required',
-// 'reward_worth'=> 'required',
-// 'reward_type_id'=> 'required',
