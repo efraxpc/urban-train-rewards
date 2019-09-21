@@ -30,18 +30,12 @@ class RewardController extends Controller
             })
             ->make(true);
         }
-        return view('rewards.index');
-    }
-    public function index()
-    {
-        $rewards = Reward::all();
-        
-        return view('rewards.index',compact('rewards'));
+        return view('pages.backend.rewards.index');
     }
     public function create()
     {
         $reward_types = RewardType::all();
-        return view('rewards.create', compact('reward_types'));
+        return view('pages.backend.rewards.create', compact('reward_types'));
     }
     public function store(Request $request)
     {
@@ -66,7 +60,7 @@ class RewardController extends Controller
         $reward = Reward::where('id', $id)
                         ->first();
         $reward_types = RewardType::all();
-        return view('rewards.edit', compact('reward', 'reward_types', 'id'));
+        return view('pages.backend.rewards.edit', compact('reward', 'reward_types', 'id'));
     }
     public function update(Request $request, $id)
     {

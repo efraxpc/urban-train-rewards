@@ -12,7 +12,7 @@ class RewardsTableSeeder extends Seeder
     {
         $count = 100;
         $this->command->info("Creating {$count} rewards.");
-        $genres = factory(App\Reward::class, $count)->create();
+        $rewards = factory(App\Reward::class, $count)->create();
         $this->command->info('Rewards Created!');
     }
 }

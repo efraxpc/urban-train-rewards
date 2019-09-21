@@ -13,5 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RewardsTypeTableSeeder::class);
         $this->call(RewardsTableSeeder::class);
+        $this->call(CountryTableSeeder::class);
+        $this->call(PrizeCategoryTableSeeder::class);
+        $this->call(OffersTableSeeder::class);
+
     }
 }
