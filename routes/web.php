@@ -11,21 +11,34 @@
 |
 */
 
-Route::get('/', 'HomeController@getIndex');
+Route::get('/', 'HomeController@index');
 Route::get('/about', function()
 {
    return View('pages.contact');
 });
 
+Auth::routes();
 
-Route::get('/rewards', 'RewardController@getIndex');
-Route::get('/rewards/data', 'RewardController@anyData');
-Route::get('/create/reward','RewardController@create');
-Route::post('/create/reward','RewardController@store');
-Route::get('/edit/reward/{id}','RewardController@edit');
-Route::post('/edit/reward/{id}','RewardController@update');
-Route::get('/delete/reward/{id}','RewardController@destroy');
 
-Route::get('/offers', 'OfferController@getIndex');
-Route::get('/create/offer','OfferController@create');
-Route::post('/create/offer','OfferController@store');
+
+Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout');
+
+//Frontend
+Route::get('/offers/{prize_category_id}', 'OfferController@getIndexFrontend');
+
+
+//Backend
+Route::get('/backend/rewards', 'RewardController@getIndex');
+Route::get('/backend/rewards/data', 'RewardController@anyData');
+Route::get('/backend/create/reward','RewardController@create');
+Route::post('/backend/create/reward','RewardController@store');
+Route::get('/backend/edit/reward/{id}','RewardController@edit');
+Route::post('/backend/edit/reward/{id}','RewardController@update');
+Route::get('/backend/delete/reward/{id}','RewardController@destroy');
+
+Route::get('/backend/offers/{prize_category_id}', 'OfferController@getIndex');
+Route::get('/backend/offers', 'OfferController@getIndex');
+Route::get('/backend/create/offer','OfferController@create');
+Route::post('/backend/create/offer','OfferController@store');
+
+Route::get('/home', 'HomeController@index')->name('home');

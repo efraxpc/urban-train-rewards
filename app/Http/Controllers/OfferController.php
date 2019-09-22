@@ -9,7 +9,12 @@ use App\Country;
 
 class OfferController extends Controller
 {
-    public function getIndex()
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function getIndex($prize_category_id = 0)
     {
         if(request()->ajax()) {
             $offers = Offer::select([
@@ -24,17 +29,28 @@ class OfferController extends Controller
                 'offer.offer_network',
                 'country.country_name as country',
                 'offer.created_at',
-            ])->join('country','country.id','=','offer.country_id')
+            ]);
+            if($prize_category_id !== 0){
+                $offers->where('offer.prize_category_id', $prize_category_id);
+            }
+            $offers->join('country','country.id','=','offer.country_id')
             ->orderBy('id')
-            
             ->get();
+
             return Datatables::of($offers)
             ->addColumn('action', function ($offer) {
-                return '<a href="/edit/offer/'.$offer->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/delete/reward/'.$offer->id.'" class="btn btn-xs btn-danger m-2"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
+                return '<a href="/edit/offer/'.$offer->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/backend/delete/reward/'.$offer->id.'" class="btn btn-xs btn-danger m-2"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
             })
             ->make(true);
         }
+        
         return view('pages.backend.offers.index');
+    }
+
+    public function getIndexFrontend($prize_category_id){
+        $offers = Offer::where('offer.prize_category_id', $prize_category_id)
+               ->get();
+        return view('pages.frontend.offers.index', compact('offers'));
     }
     public function create()
     {

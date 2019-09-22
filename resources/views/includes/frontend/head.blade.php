@@ -22,3 +22,5 @@
 
 <!-- YOUR CUSTOM CSS -->
 <link href="{{ asset('assets/frontend/css/custom.css') }}" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/dbdceb12c1.js" crossorigin="anonymous"></script>

@@ -26,7 +26,7 @@ class RewardController extends Controller
             ->get();
             return Datatables::of($rewards)
             ->addColumn('action', function ($reward) {
-                return '<a href="/edit/reward/'.$reward->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/delete/reward/'.$reward->id.'" class="btn btn-xs btn-danger m-2"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
+                return '<a href="/backend/edit/reward/'.$reward->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/backend/delete/reward/'.$reward->id.'" class="btn btn-xs btn-danger m-2"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
             })
             ->make(true);
         }

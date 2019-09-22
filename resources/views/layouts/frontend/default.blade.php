@@ -73,6 +73,5 @@
     <script src="{{ asset('assets/frontend/js/common_scripts.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/functions.js') }}"></script>
 	<script src="{{ asset('assets/frontend/assets/validate.js') }}"></script>
-	<script src="{{ asset('assets/frontend/js/animated_canvas_min.js') }}"></script>
 </body>
 </html>

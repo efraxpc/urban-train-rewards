@@ -12,7 +12,7 @@
 @endif
 <div class="row">
     <div class="col-12 p-0">
-        <form method="post" action="{{url('/create/reward')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('/backend/create/reward')}}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">

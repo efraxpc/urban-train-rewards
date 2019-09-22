@@ -11,9 +11,8 @@
          <!-- Logo Header -->
          <div class="logo-header" data-background-color="dark2">
 
-            <a href="#" class="logo">
+            <a href="#" class="logo" id="brand-logo">
                <img src="{{ asset('assets/backend/img/logo.svg') }}" alt="navbar brand" class="navbar-brand">
-               
             </a>
             <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +37,17 @@
                      <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
                            <img src="{{ asset('assets/backend/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">
+                                     {{ __('Logout') }}
+                                 </a>
+
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                     @csrf
+                                 </form>
+                             </div>
                         </div>
                      </a>
                   </li>
@@ -53,13 +63,13 @@
                <div class="sidebar-content">
                   <ul class="nav nav-primary">
                      <li class="nav-item" id="click-to-rewards">
-                        <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="{{ url('/rewards') }}" role="button">
+                        <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
                            <i class="fas fa-money-bill"></i>
                            <p>Rewards</p>
                         </a>
                      </li>
-                     <li class="nav-item" id="click-to-rewards">
-                           <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="{{ url('/offers') }}" role="button">
+                     <li class="nav-item" id="click-to-offers">
+                           <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
                               <i class="fas fa-money-bill-wave"></i>
                               <p>Offers</p>
                            </a>
@@ -124,8 +134,15 @@
    <script type="text/javascript" src="{{ asset('assets/backend/js/atlantis.min.js') }}"></script>
    <script>
    $('#click-to-rewards').click(function(){
-      window.location.href = '/rewards'
+      window.location.href = '/backend/rewards'
    })
+   $('#click-to-offers').click(function(){
+      window.location.href = '/backend/offers'
+   })
+   $('#brand-logo').click(function(){
+      window.location.href = '/'
+   })
+   
    </script>
    @yield('scripts')
 </body>
