@@ -103,12 +103,13 @@
     <div class="container margin_60_35">
         
         <div class="row">
-                @foreach ($offers as $offer)
+                @if (count($offers) >= 1)
+                    @foreach ($offers as $offer)
                     <div class="col-xl-4 col-lg-6 col-md-6">
                             <div class="strip grid">
                                 <figure>
                                     <a href="#0" class="wish_bt"></a>
-                                    <a href="{{ url('/offers', [$offer->id]) }}"><img src="{{$offer->offer_image}}" class="img-fluid" alt=""><div class="read_more"><span>Read more</span></div></a>
+                                    <a href="{{ url('/read-offer-doc', [$offer->id]) }}"><img src="{{$offer->offer_image}}" class="img-fluid" alt=""><div class="read_more"><span>Read more</span></div></a>
                                     
                                 </figure>
                                 <div class="wrapper">
@@ -117,12 +118,14 @@
                                 </div>
                             </div>
                         </div>
-                @endforeach
-            
+                    @endforeach
+                @else
+                <p>There's no offers in this prize category</p>
+                @endif
         </div>
         <!-- /row -->
         
-        <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
+        {{-- <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p> --}}
         
     </div>
     <!-- /container -->

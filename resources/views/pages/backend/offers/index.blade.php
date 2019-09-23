@@ -48,7 +48,7 @@
             { data: 'offer_worth', name: 'offer_worth' },
             { data: 'offer_network', name: 'offer_network' },
             { data: 'offer_image', name: 'offer_image' },
-            { data: 'country', name: 'country' },
+            { data: 'country', name: 'country', searchable: false  },
             { data: 'action', name: 'action', orderable: false, searchable: false }
         ],
         "columnDefs": [

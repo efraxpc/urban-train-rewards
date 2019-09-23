@@ -82,7 +82,7 @@ class RewardController extends Controller
 
         $data['id'] = $id;
         $reward->updateReward($data);        
-        return redirect('/rewards')->with('success', 'Reward has been updated!!');
+        return redirect('/backend/rewards')->with('success', 'Reward has been updated!!');
     }
 
     public function destroy($id)
@@ -90,6 +90,6 @@ class RewardController extends Controller
         $ticket = Reward::find($id);
         $ticket->delete();
 
-        return redirect('/rewards')->with('success', 'Reward has been deleted!!');
+        return redirect('/backend/rewards')->with('success', 'Reward has been deleted!!');
     }
 }

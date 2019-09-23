@@ -6,6 +6,7 @@ use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Storage;
 use App\Offer;
 use App\Country;
+use App\PrizeCategory;
 
 class OfferController extends Controller
 {
@@ -39,7 +40,7 @@ class OfferController extends Controller
 
             return Datatables::of($offers)
             ->addColumn('action', function ($offer) {
-                return '<a href="/edit/offer/'.$offer->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/backend/delete/reward/'.$offer->id.'" class="btn btn-xs btn-danger m-2"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
+                return '<a href="/backend/edit/offer/'.$offer->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="/backend/delete/offer/'.$offer->id.'" class="btn btn-xs btn-danger m-2"><i class="glyphicon glyphicon-edit"></i> Delete</a>';
             })
             ->make(true);
         }
@@ -76,5 +77,45 @@ class OfferController extends Controller
         
         Storage::disk('public')->put('images', $file);
         return redirect('offers')->with('success', 'Offer has been created!');
+    }
+    public function edit($id)
+    {
+        $offer = Offer::where('id', $id)
+                        ->first();
+        $countries = Country::all();
+        $prize_categories = PrizeCategory::all();
+        return view('pages.backend.offers.edit', compact('offer', 'countries', 'prize_categories', 'id'));
+    }
+    public function update(Request $request, $id)
+    {
+        $data = $this->validate($request, [
+            'offer_name'=>'required',
+            'offer_short_description'=> 'required',
+            'offer_long_description'=> 'required',
+            'offer_link'=> 'required',
+            'offer_worth'=> 'required',
+            'country_id'=> 'required',
+            'offer_network'=>'required'
+        ]);
+        $data['id'] = $id;
+        $reward = new Offer();
+  
+        if(isset($request->offer_image)){
+            $file_name = $request->offer_image->hashName();
+            $file = $request->offer_image;
+            Storage::disk('public')->put('images', $file);
+            $data['offer_image'] = $file_name;
+        }
+
+        $data['id'] = $id;
+        $reward->updateOffer($data);        
+        return redirect('/backend/offers')->with('success', 'Offer has been updated!!');
+    }
+    public function destroy($id)
+    {
+        $ticket = Offer::find($id);
+        $ticket->delete();
+
+        return redirect('/backend/offers')->with('success', 'Offer has been deleted!!');
     }
 }

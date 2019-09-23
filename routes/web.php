@@ -17,7 +17,7 @@ Route::get('/about', function()
    return View('pages.contact');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 
@@ -25,7 +25,6 @@ Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout');
 
 //Frontend
 Route::get('/offers/{prize_category_id}', 'OfferController@getIndexFrontend');
-
 
 //Backend
 Route::get('/backend/rewards', 'RewardController@getIndex');
@@ -40,5 +39,11 @@ Route::get('/backend/offers/{prize_category_id}', 'OfferController@getIndex');
 Route::get('/backend/offers', 'OfferController@getIndex');
 Route::get('/backend/create/offer','OfferController@create');
 Route::post('/backend/create/offer','OfferController@store');
+Route::get('/backend/edit/offer/{id}','OfferController@edit');
+Route::post('/backend/edit/offer/{id}','OfferController@update');
+Route::get('/backend/delete/offer/{id}','OfferController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/read-offer-doc/{id}', 'HomeController@readOfferDoc')->middleware('verified');
+
+

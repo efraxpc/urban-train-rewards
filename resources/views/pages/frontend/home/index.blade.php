@@ -103,22 +103,25 @@
     <div class="container margin_60_35">
         
         <div class="row">
-                @foreach ($prize_categories as $prize_category)
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                            <div class="strip grid">
-                                <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="{{ url('/offers', [$prize_category->id]) }}"><img src="{{$prize_category->prize_category_image}}" class="img-fluid" alt=""><div class="read_more"><span>Read more</span></div></a>
-                                    
-                                </figure>
-                                <div class="wrapper">
-                                    <h3><a href="#">{{$prize_category->prize_category_name}}</a></h3>
-                                    <p>{{$prize_category->prize_category_description}}</p>
+                @if (count($prize_categories) >= 1)
+                    @foreach ($prize_categories as $prize_category)
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                                <div class="strip grid">
+                                    <figure>
+                                        <a href="#0" class="wish_bt"></a>
+                                        <a href="{{ url('/offers', [$prize_category->id]) }}"><img src="{{$prize_category->prize_category_image}}" class="img-fluid" alt=""><div class="read_more"><span>Read more</span></div></a>
+                                        
+                                    </figure>
+                                    <div class="wrapper">
+                                        <h3><a href="#">{{$prize_category->prize_category_name}}</a></h3>
+                                        <p>{{$prize_category->prize_category_description}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                @endforeach
-            
+                    @endforeach
+                @else
+                <p>There's no pizes categories to show</p>
+                @endif
         </div>
         <!-- /row -->
         

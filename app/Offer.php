@@ -26,4 +26,20 @@ class Offer extends Model
 
         return 1;
     }
+    public function updateOffer($data)
+    {
+        $offer = $this->find($data['id']);
+        $offer->offer_name = $data['offer_name'];
+        $offer->offer_short_description = $data['offer_short_description'];
+        $offer->offer_long_description = $data['offer_long_description'];
+        $offer->offer_link = $data['offer_link'];
+        $offer->offer_worth = $data['offer_worth'];
+        $offer->country_id = $data['country_id'];
+        $offer->offer_network = $data['offer_network'];
+        if(isset($data['offer_image'])){
+            $offer->offer_image = $data['reward_image'];
+        }
+        $offer->save();
+        return 1;
+    }
 }

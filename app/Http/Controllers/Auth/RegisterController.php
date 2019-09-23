@@ -7,6 +7,9 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use \DrewM\MailChimp\MailChimp;
+use Mail;
+use App\Mail\OrderShipped;
 
 class RegisterController extends Controller
 {
@@ -63,8 +66,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $MailChimp = new MailChimp('907c15372095c293ffeda60c9f2c42ca-us20');
+        $result = $MailChimp->get('lists');
+      
+        $list_id = '4687949fd0';
+
+        $result = $MailChimp->post("lists/$list_id/members", [
+                'name' => $data['name'],
+                'last_name' => $data['last_name'],
+				'email_address' => $data['email'],
+				'status'        => 'subscribed',
+            ]);
+            
+
+        Mail::to($data['email'])->send(new OrderShipped('subject','message'));
+
         return User::create([
             'name' => $data['name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PrizeCategory;
 use Auth;
+use App\Offer;
 
 class HomeController extends Controller
 {
@@ -20,8 +21,14 @@ class HomeController extends Controller
     public function index()
     {
         $prize_categories = PrizeCategory::all();
-        $user_logued = Auth::user();
-        return view('pages.frontend.home.index',compact('prize_categories'), compact('user_logued'));
+        return view('pages.frontend.home.index',compact('prize_categories'));
+    }
+
+    public function readOfferDoc($offer_id)
+    {
+        $offer = Offer::where('id', $offer_id)
+                        ->first();
+        return view('pages.frontend.home.readOfferDoc',compact('offer'));
     }
 
 }
