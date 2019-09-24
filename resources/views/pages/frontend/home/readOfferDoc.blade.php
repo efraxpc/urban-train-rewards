@@ -107,7 +107,7 @@
             <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
                 <p class="card-text">{!!$offer->offer_long_description!!}</p>
-                <a href="#" class="btn btn-primary">Continue with this offer</a>
+                <a href="{{$offer->offer_link}}" class="btn btn-primary">Continue with this offer</a>
             </div>
         </div>
         
