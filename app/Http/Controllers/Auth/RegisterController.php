@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use \DrewM\MailChimp\MailChimp;
 use Mail;
 use App\Mail\OrderShipped;
+use App\MailchipInfo;
 
 class RegisterController extends Controller
 {
@@ -66,10 +67,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $MailChimp = new MailChimp('907c15372095c293ffeda60c9f2c42ca-us20');
+        $mailchip_info = Mailchipinfo::where('id',1)->first();
+        $MailChimp = new MailChimp($mailchip_info->api_key);
         $result = $MailChimp->get('lists');
       
-        $list_id = '4687949fd0';
+        $list_id = $mailchip_info->campaing_id;
 
         $result = $MailChimp->post("lists/$list_id/members", [
                 'name' => $data['name'],
@@ -78,7 +80,6 @@ class RegisterController extends Controller
 				'status'        => 'subscribed',
             ]);
             
-
         Mail::to($data['email'])->send(new OrderShipped('subject','message'));
 
         return User::create([

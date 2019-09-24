@@ -43,6 +43,10 @@ Route::get('/backend/edit/offer/{id}','OfferController@edit');
 Route::post('/backend/edit/offer/{id}','OfferController@update');
 Route::get('/backend/delete/offer/{id}','OfferController@destroy');
 
+Route::get('/backend/mailchip-info','MailchipinfoController@getIndex');
+Route::post('/backend/mailchip-info','MailchipinfoController@update');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/read-offer-doc/{id}', 'HomeController@readOfferDoc')->middleware('verified');
 

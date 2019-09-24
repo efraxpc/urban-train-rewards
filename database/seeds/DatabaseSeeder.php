@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PrizeCategoryTableSeeder::class);
         $this->call(OffersTableSeeder::class);
         $this->call(UserTableSeeder::class);
-
-
+        $this->call(MailchipInfoSeeder::class);
     }
 }

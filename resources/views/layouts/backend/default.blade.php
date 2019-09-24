@@ -74,6 +74,12 @@
                               <p>Offers</p>
                            </a>
                      </li>
+                     <li class="nav-item" id="click-to-mailchip-info">
+                           <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                              <i class="fas fa-envelope"></i>
+                              <p>Mailchip info</p>
+                           </a>
+                     </li>
                </div>
             </div>
          </div>
@@ -141,6 +147,9 @@
    })
    $('#brand-logo').click(function(){
       window.location.href = '/'
+   })
+   $('#click-to-mailchip-info').click(function(){
+      window.location.href = '/backend/mailchip-info'
    })
    
    </script>
