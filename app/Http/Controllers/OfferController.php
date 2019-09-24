@@ -97,7 +97,6 @@ class OfferController extends Controller
             'country_id'=> 'required',
             'offer_network'=>'required'
         ]);
-        $data['id'] = $id;
         $reward = new Offer();
   
         if(isset($request->offer_image)){

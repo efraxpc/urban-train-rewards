@@ -51,3 +51,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/read-offer-doc/{id}', 'HomeController@readOfferDoc')->middleware('verified');
 
 
+

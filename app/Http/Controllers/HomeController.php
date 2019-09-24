@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\PrizeCategory;
 use Auth;
 use App\Offer;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -31,4 +32,25 @@ class HomeController extends Controller
         return view('pages.frontend.home.readOfferDoc',compact('offer'));
     }
 
+    public function callback(Request $request){
+        $username = $request->input('subid');
+        $survey = $request->input('survey');
+        $earn = $request->input('earn');
+        $pdtshow = $request->input('pdtshow');
+        
+        $user = User::where('username', $username)
+                        ->first();
+        if($user){
+            $user->points = $pdtshow;
+            $user->completed_surveys = $user->completed_surveys + 1;
+            $user->save();
+            return response()->json([
+                'success' => True
+            ]);
+        }
+        return response()->json([
+            'success' => False
+        ]);
+    }
 }
+
