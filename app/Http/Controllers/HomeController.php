@@ -37,17 +37,21 @@ class HomeController extends Controller
         $survey = $request->input('survey');
         $earn = $request->input('earn');
         $pdtshow = $request->input('pdtshow');
-        
-        $user = User::where('username', $username)
-                        ->first();
-        if($user){
-            $user->points = $pdtshow;
-            $user->completed_surveys = $user->completed_surveys + 1;
-            $user->save();
-            return response()->json([
-                'success' => True
-            ]);
+
+        $cpalead_password = $request->input('password');
+        if($cpalead_password == 'Master*1!cpalead$#@'){
+            $user = User::where('username', $username)
+                                    ->first();
+            if($user){
+                $user->points = $pdtshow;
+                $user->completed_surveys = $user->completed_surveys + 1;
+                $user->save();
+                return response()->json([
+                    'success' => True
+                ]);
+            }
         }
+        
         return response()->json([
             'success' => False
         ]);
