@@ -113,7 +113,7 @@
                                         
                                     </figure>
                                     <div class="wrapper">
-                                        <h3><a href="#">{{$prize_category->prize_category_name}}</a></h3>
+                                        <h3><a href="{{ url('/offers', [$prize_category->id]) }}">{{$prize_category->prize_category_name}}</a></h3>
                                         <p>{{$prize_category->prize_category_description}}</p>
                                     </div>
                                 </div>
