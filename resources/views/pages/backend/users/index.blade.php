@@ -17,7 +17,6 @@
                         <td class="text-center desktop">Last name</td>
                         <td class="text-center desktop tablet">Email</td>
                         <td class="text-center desktop">Points</td>
-                        <td class="text-center desktop">Completed Surveys</td>
                         <td class="text-center desktop">Username</td>
                         <td>Actions</td>
                     </tr>
@@ -44,7 +43,6 @@
             { data: 'last_name', name: 'last_name' },
             { data: 'email', name: 'email' },
             { data: 'points', name: 'points' },
-            { data: 'completed_surveys', name: 'completed_surveys' },
             { data: 'username', name: 'username' },
             { data: 'action', name: 'action', orderable: false, searchable: false }
         ],

@@ -16,7 +16,6 @@ class UserController extends Controller
                 'users.last_name',
                 'users.email',
                 'users.username',
-                'users.completed_surveys',
                 'users.points',
                 'users.created_at',
             ])

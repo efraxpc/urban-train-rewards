@@ -21,8 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('is_admin')->default('0');
-            $table->integer('points')->default('0');
-            $table->integer('completed_surveys')->default('0');
+            $table->decimal('points', 5, 2)->default('0');
             $table->string('username')->unique();
             $table->integer('payout')->default('0');
             
