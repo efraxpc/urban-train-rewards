@@ -36,9 +36,9 @@ class CreateOfferTable extends Migration
             $table->string('offer_worth');
             $table->string('offer_network');
             $table->string('offer_image');
-            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('country_id')->default('1');
             $table->foreign('country_id')->references('id')->on('country');
-            $table->unsignedBigInteger('prize_category_id');
+            $table->unsignedBigInteger('prize_category_id')->default('1');
             $table->foreign('prize_category_id')->references('id')->on('prize_category');
             $table->timestamps();
         });
