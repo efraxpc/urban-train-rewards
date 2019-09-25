@@ -17,5 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/callback','HomeController@callback');
+Route::post('/postback/conversion?subid={subid}','HomeController@callback');
 
+//https://example.com/postback/conversion?subid={subid}&subid2={subid2}&subid3={subid3}

@@ -33,6 +33,7 @@ class HomeController extends Controller
     }
 
     public function callback(Request $request){
+        dd($request);
         $username = $request->input('subid');
         $survey = $request->input('survey');
         $earn = $request->input('earn');
@@ -51,10 +52,13 @@ class HomeController extends Controller
                 ]);
             }
         }
-        
+
+
         return response()->json([
             'success' => False
         ]);
     }
 }
+
+//https://example.com/postback/conversion?subid={subid}&subid2={subid2}&subid3={subid3}
 

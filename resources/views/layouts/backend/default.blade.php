@@ -80,6 +80,12 @@
                               <p>Mailchip info</p>
                            </a>
                      </li>
+                     <li class="nav-item" id="click-to-users">
+                        <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                           <i class="fas fa-user"></i>
+                           <p>Users</p>
+                        </a>
+                  </li>
                </div>
             </div>
          </div>
@@ -151,7 +157,9 @@
    $('#click-to-mailchip-info').click(function(){
       window.location.href = '/backend/mailchip-info'
    })
-   
+   $('#click-to-users').click(function(){
+      window.location.href = '/backend/users'
+   })
    </script>
    @yield('scripts')
 </body>

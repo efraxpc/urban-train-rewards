@@ -50,5 +50,6 @@ Route::post('/backend/mailchip-info','MailchipinfoController@update');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/read-offer-doc/{id}', 'HomeController@readOfferDoc')->middleware('verified');
 
+Route::get('/backend/users', 'UserController@getIndex');
 
 

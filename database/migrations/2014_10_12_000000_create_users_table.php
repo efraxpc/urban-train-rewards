@@ -24,10 +24,21 @@ class CreateUsersTable extends Migration
             $table->integer('points')->default('0');
             $table->integer('completed_surveys')->default('0');
             $table->string('username')->unique();
+            $table->integer('payout')->default('0');
+            
             $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::create('campaing', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('campaing_name');
+            $table->unsignedBigInteger('username_id')->nullable();
+            $table->foreign('username_id')->references('id')->on('users');
+            $table->timestamps();
+        });
+
     }
 
     /**
