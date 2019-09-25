@@ -76,7 +76,7 @@ class OfferController extends Controller
         $offer->saveOffer($data, $file_name);
         
         Storage::disk('public')->put('images', $file);
-        return redirect('offers')->with('success', 'Offer has been created!');
+        return redirect('backend/offers')->with('success', 'Offer has been created!');
     }
     public function edit($id)
     {
