@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->decimal('points', 5, 2)->default('0');
             $table->string('username')->unique();
             $table->integer('payout')->default('0');
-            
+            $table->string('ip_address')->default('127.0.0.1');
             $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();

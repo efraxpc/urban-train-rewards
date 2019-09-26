@@ -176,8 +176,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#66BECD;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 1.2; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #66BECD; mso-line-height-alt: 14px;">
-<p style="font-size: 50px; line-height: 1.2; mso-line-height-alt: 60px; margin: 0;"><span style="font-size: 50px;"><span style="font-size: 50px;" >wellcome to </span></span></p>
-<p style="font-size: 50px; line-height: 1.2; mso-line-height-alt: 60px; margin: 0;"><span style="font-size: 50px;"><span style="font-size: 50px;">Rewards System</span></span></p>
+<p style="font-size: 50px; line-height: 1.2; mso-line-height-alt: 60px; margin: 0;"><span style="font-size: 50px;"><span style="font-size: 50px;" >{{$wellcome_email_info->tittle}}</span></span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -240,9 +239,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:1.5;padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 1.5; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555; mso-line-height-alt: 18px;">
-<p style="font-size: 17px; line-height: 1.5; text-align: left; mso-line-height-alt: 26px; mso-ansi-font-size: 18px; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac turpis tincidunt, convallis lorem consectetur, varius ipsum. Quisque mauris sem, tempus sit amet massa ac, efficitur tristique turpis. Aliquam maximus aliquam odio non facilisis. Mauris pellentesque blandit posuere.</span></p>
-<p style="font-size: 14px; line-height: 1.5; text-align: left; mso-line-height-alt: 21px; margin: 0;"> </p>
-<p style="font-size: 17px; line-height: 1.5; text-align: left; mso-line-height-alt: 26px; mso-ansi-font-size: 18px; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;">Donec rutrum, risus vitae aliquet fringilla, velit ligula placerat ligula, eget dapibus velit lacus et nibh. Nulla non lorem eget erat iaculis egestas a sed felis. Ut nec semper nisi. Cras in hendrerit lorem. Integer iaculis ex diam.</span></p>
+<p style="font-size: 17px; line-height: 1.5; text-align: left; mso-line-height-alt: 26px; mso-ansi-font-size: 18px; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;">{{$wellcome_email_info->content}}</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -290,7 +287,7 @@
 <!--<![endif]-->
 <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-    <p>My text</p>
+<p>{{$wellcome_email_info->pre_footer}}</p>
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
@@ -320,7 +317,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 1.2; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555; mso-line-height-alt: 14px;">
-<p style="font-size: 14px; line-height: 1.2; text-align: left; mso-line-height-alt: 17px; margin: 0;">Mobile phone 203939032 / <strong><a href="http://www.example.com/" rel="noopener" style="text-decoration: underline; color: #66BECD;" target="_blank">hello@meme.com</a></strong></p>
+<p style="font-size: 14px; line-height: 1.2; text-align: left; mso-line-height-alt: 17px; margin: 0;">{{$wellcome_email_info->footer}}</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->

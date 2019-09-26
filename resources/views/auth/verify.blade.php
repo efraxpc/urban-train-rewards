@@ -1,4 +1,4 @@
-@extends('layouts.frontend.default')
+@extends('layouts.frontend.login')
 @section('content')
 <main style="min-height: 50vh;
 ">

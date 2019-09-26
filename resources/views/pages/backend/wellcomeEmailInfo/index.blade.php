@@ -12,38 +12,40 @@
 @endif
 <div class="row">
     <div class="col-12">
-        <form method="post" action="{{action('UserController@update', $id)}}" enctype="multipart/form-data"">
+        <form method="post" action="{{action('WellcomeEmailInfoController@update')}}" enctype="multipart/form-data"">
             {{csrf_field()}}
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
                         <input type="hidden" value="{{csrf_token()}}" name="_token" />
-                        <label for="title">User name:</label>
-                    <input type="text" class="form-control" name="name" value="{{$user->name}}"/>
+                        <label for="tittle">Tittle:</label>
+                        <input type="text" class="form-control" name="tittle" value="{{$wellcome_email_info->tittle}}"/>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="last_name">User last name:</label>
-                        <input type="text" class="form-control" name="last_name" value="{{$user->last_name}}"/>
+                        <input type="hidden" value="{{csrf_token()}}" name="_token" />
+                        <label for="pre_footer">Pre footer:</label>
+                        <input type="text" class="form-control" name="pre_footer" value="{{$wellcome_email_info->pre_footer}}"/>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="email">User email:</label>
-                        <input cols="5" rows="5" class="form-control" type="email" name="email" value="{{$user->last_name}}"/>
+                        <input type="hidden" value="{{csrf_token()}}" name="_token" />
+                        <label for="pre_footer">Footer:</label>
+                        <input type="text" class="form-control" name="footer" value="{{$wellcome_email_info->footer}}"/>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="points">User points:</label>
-                        <input cols="5" rows="5" class="form-control" name="points" value="{{$user->points}}"/>
+                        <label for="address">Content:</label>
+                        <textarea cols="5" rows="5" class="form-control" name="content">{{$wellcome_email_info->content}}</textarea>
                     </div>
                 </div>
             </div>
@@ -54,8 +56,9 @@
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
 </div>
 @endsection
+'pre_footer'=>'required',
+'footer'=>'required',

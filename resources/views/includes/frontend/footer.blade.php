@@ -48,9 +48,9 @@
             </a>
             <div class="collapse show" id="collapse_ft_3">
                 <ul class="contacts">
-                    <li><i class="ti-home"></i>97845 Baker st. 567<br>Los Angeles - US</li>
-                    <li><i class="ti-headphone-alt"></i>+39 06 97240120</li>
-                    <li><i class="ti-email"></i><a href="#0">info@sparker.com</a></li>
+                    <li><i class="ti-home"></i>{{$contact_info->address}}</li>
+                    <li><i class="ti-headphone-alt"></i>{{$contact_info->phone_number}}</li>
+                    <li><i class="ti-email"></i><a href="#0">{{$contact_info->mail_contact}}</a></li>
                 </ul>
             </div>
         </div>

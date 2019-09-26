@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PrizeCategory;
-use Auth;
 use App\Offer;
 use App\User;
+use App\ContactInfo;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -22,43 +23,15 @@ class HomeController extends Controller
     public function index()
     {
         $prize_categories = PrizeCategory::all();
-        return view('pages.frontend.home.index',compact('prize_categories'));
+        $contact_info = ContactInfo::find(1);
+        return view('pages.frontend.home.index',compact('prize_categories','contact_info'));
     }
 
     public function readOfferDoc($offer_id)
     {
         $offer = Offer::where('id', $offer_id)
                         ->first();
-        return view('pages.frontend.home.readOfferDoc',compact('offer'));
-    }
-
-    public function callback(Request $request){
-        dd($request);
-        $username = $request->input('subid');
-        $survey = $request->input('survey');
-        $earn = $request->input('earn');
-        $pdtshow = $request->input('pdtshow');
-
-        $cpalead_password = $request->input('password');
-        if($cpalead_password == 'Master*1!cpalead$#@'){
-            $user = User::where('username', $username)
-                                    ->first();
-            if($user){
-                $user->points = $pdtshow;
-                $user->completed_surveys = $user->completed_surveys + 1;
-                $user->save();
-                return response()->json([
-                    'success' => True
-                ]);
-            }
-        }
-
-
-        return response()->json([
-            'success' => False
-        ]);
+        $contact_info = ContactInfo::find(1);
+        return view('pages.frontend.home.readOfferDoc',compact('offer','contact_info'));
     }
 }
-
-//https://example.com/postback/conversion?subid={subid}&subid2={subid2}&subid3={subid3}
-

@@ -30,26 +30,47 @@ class UserController extends Controller
         }
         return view('pages.backend.users.index');
     }
-    // public function create()
-    // {
-    //     return view('pages.backend.users.create');
-    // }
-    // public function store(Request $request)
-    // {
-    //     $reward = new Reward();
-    //     $data = $this->validate($request, [
-    //         'reward_name'=>'required',
-    //         'reward_description'=> 'required',
-    //         'reward_image'=> 'required',
-    //         'reward_worth'=> 'required',
-    //         'reward_type'=> 'required',
-    //     ]);
-    //     $file_name = $request->reward_image->hashName();
-    //     $file = $request->reward_image;
-       
-    //     $reward->saveReward($data, $file_name);
-        
-    //     Storage::disk('public')->put('images', $file);
-    //     return redirect('rewards')->with('success', 'Reward has been created!');
-    // }
+    public function create()
+    {
+        return view('pages.backend.users.create');
+    }
+    public function store(Request $request)
+    {
+        $user = new User();
+        $data = $this->validate($request, [
+            'name'=>'required',
+            'last_name'=> 'required',
+            'email'=> 'required',
+            'password' => 'required|confirmed|min:8',
+        ]);
+    
+        $user->saveUser($data);
+        return redirect('/backend/users')->with('success', 'User has been created!');
+    }
+    public function edit($id)
+    {
+        $user = User::where('id', $id)
+                        ->first();
+        return view('pages.backend.users.edit', compact('user', 'id'));
+    }
+    public function update(Request $request, $id)
+    {
+        $data = $this->validate($request, [
+            'name'=>'required',
+            'last_name'=> 'required',
+            'email'=> 'required',
+            'points'=> 'required',
+        ]);
+        $data['id'] = $id;
+        $user = new User();
+        $user->updateUser($data);        
+        return redirect('/backend/users')->with('success', 'User has been updated!!');
+    }
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('/backend/users')->with('success', 'User has been deleted!!');
+    }
 }

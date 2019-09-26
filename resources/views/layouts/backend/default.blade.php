@@ -36,18 +36,19 @@
                   <li class="nav-item dropdown hidden-caret">
                      <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
-                           <img src="{{ asset('assets/backend/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                           <img src="{{ asset('assets/backend/img/profile.jpg') }}" alt="..."
+                              class="avatar-img rounded-circle">
                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
-                                     {{ __('Logout') }}
-                                 </a>
+                                 {{ __('Logout') }}
+                              </a>
 
-                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                     @csrf
-                                 </form>
-                             </div>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                 style="display: none;">
+                                 @csrf
+                              </form>
+                           </div>
                         </div>
                      </a>
                   </li>
@@ -57,39 +58,51 @@
          <!-- End Navbar -->
       </div>
 
-		<!-- Sidebar -->
-		<div class="sidebar" data-background-color="dark2">
-            <div class="sidebar-wrapper scrollbar scrollbar-inner">
-               <div class="sidebar-content">
-                  <ul class="nav nav-primary">
-                     <li class="nav-item" id="click-to-rewards">
-                        <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
-                           <i class="fas fa-money-bill"></i>
-                           <p>Rewards</p>
-                        </a>
-                     </li>
-                     <li class="nav-item" id="click-to-offers">
-                           <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
-                              <i class="fas fa-money-bill-wave"></i>
-                              <p>Offers</p>
-                           </a>
-                     </li>
-                     <li class="nav-item" id="click-to-mailchip-info">
-                           <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
-                              <i class="fas fa-envelope"></i>
-                              <p>Mailchip info</p>
-                           </a>
-                     </li>
-                     <li class="nav-item" id="click-to-users">
-                        <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
-                           <i class="fas fa-user"></i>
-                           <p>Users</p>
-                        </a>
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark2">
+         <div class="sidebar-wrapper scrollbar scrollbar-inner">
+            <div class="sidebar-content">
+               <ul class="nav nav-primary">
+                  <li class="nav-item" id="click-to-rewards">
+                     <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                        <i class="fas fa-money-bill"></i>
+                        <p>Rewards</p>
+                     </a>
                   </li>
-               </div>
+                  <li class="nav-item" id="click-to-offers">
+                     <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <p>Offers</p>
+                     </a>
+                  </li>
+                  <li class="nav-item" id="click-to-mailchip-info">
+                     <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                        <i class="fas fa-envelope"></i>
+                        <p>Mailchip info</p>
+                     </a>
+                  </li>
+                  <li class="nav-item" id="click-to-users">
+                     <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                        <i class="fas fa-user"></i>
+                        <p>Users</p>
+                     </a>
+                  </li>
+                  <li class="nav-item" id="click-to-contact-information">
+                     <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                        <i class="fas fa-address-book"></i>
+                        <p>Contact information</p>
+                     </a>
+                  </li>
+                  <li class="nav-item" id="click-to-wellcome-email-information">
+                     <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                        <i class="fas fa-door-open"></i>
+                        <p>Wellcome email information</p>
+                     </a>
+                  </li>
             </div>
          </div>
-         <!-- End Sidebar -->
+      </div>
+      <!-- End Sidebar -->
       <div class="main-panel">
          <div class="content">
             <div class="page-inner bg-light">
@@ -119,7 +132,8 @@
       src="{{ asset('assets/backend/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js') }}"></script>
 
    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-   <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+   <script type="text/javascript"
+      src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
    <!-- jQuery Scrollbar -->
    <script type="text/javascript"
@@ -145,21 +159,28 @@
    <!-- Atlantis JS -->
    <script type="text/javascript" src="{{ asset('assets/backend/js/atlantis.min.js') }}"></script>
    <script>
-   $('#click-to-rewards').click(function(){
-      window.location.href = '/backend/rewards'
-   })
-   $('#click-to-offers').click(function(){
-      window.location.href = '/backend/offers'
-   })
-   $('#brand-logo').click(function(){
-      window.location.href = '/'
-   })
-   $('#click-to-mailchip-info').click(function(){
-      window.location.href = '/backend/mailchip-info'
-   })
-   $('#click-to-users').click(function(){
-      window.location.href = '/backend/users'
-   })
+      $('#click-to-rewards').click(function () {
+         window.location.href = '/backend/rewards'
+      })
+      $('#click-to-offers').click(function () {
+         window.location.href = '/backend/offers'
+      })
+      $('#brand-logo').click(function () {
+         window.location.href = '/'
+      })
+      $('#click-to-mailchip-info').click(function () {
+         window.location.href = '/backend/mailchip-info'
+      })
+      $('#click-to-users').click(function () {
+         window.location.href = '/backend/users'
+      })
+      $('#click-to-contact-information').click(function () {
+         window.location.href = '/backend/contact-information'
+      })
+      $('#click-to-wellcome-email-information').click(function () {
+         window.location.href = '/backend/wellcome-email-information'
+      })
+      
    </script>
    @yield('scripts')
 </body>

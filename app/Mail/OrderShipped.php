@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\WellcomeEmailInfo;
 
 class OrderShipped extends Mailable
 {
@@ -32,8 +33,9 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
+        $wellcome_email_info = WellcomeEmailInfo::find(1);
         $e_subject = $this->sub;
         $e_message = $this->mess;
-        return $this->view('emails.orders.shipped', compact("e_message"))->subject($e_subject);
+        return $this->view('emails.orders.shipped', compact("e_message","wellcome_email_info"))->subject($e_subject);
     }
 }

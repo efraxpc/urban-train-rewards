@@ -12,7 +12,7 @@
 @endif
 <div class="row">
     <div class="col-12 p-0">
-        <form method="post" action="{{url('/backend/create/reward')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('/backend/create/user')}}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
@@ -25,36 +25,40 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="reward_description">Reward description:</label>
-                        <textarea cols="5" rows="5" class="form-control" name="last_name"></textarea>
+                        <label for="last_name">User last name:</label>
+                        <input type="text" class="form-control" name="last_name" />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="reward_worth">Reward worth:</label>
-                        <input cols="5" rows="5" class="form-control" name="reward_worth"></input>
+                        <label for="email">User email:</label>
+                        <input cols="5" rows="5" class="form-control" type="email" name="email"></input>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Reward type</label>
-                        <select class="form-control" name="reward_type">
-                            @foreach($reward_types as $reward_type)
-                            <option value="{{$reward_type->id}}">{{$reward_type->name}}</option>
-                            @endforeach
-                        </select>
+                        <label for="points">User points:</label>
+                        <input cols="5" rows="5" class="form-control" name="points"></input>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="reward_image">Reward image:</label>
-                        <input type="file" id="reward_image" name="reward_image" accept="image/png, image/jpeg">
+                        <label for="password">Password:</label>
+                        <input cols="5" rows="5" class="form-control" name="password"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="password_confirmation">Confirm password:</label>
+                        <input cols="5" rows="5" class="form-control" name="password_confirmation"></input>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Offer;
 use App\Country;
 use App\PrizeCategory;
+use App\ContactInfo;
 
 class OfferController extends Controller
 {
@@ -44,14 +45,14 @@ class OfferController extends Controller
             })
             ->make(true);
         }
-        
         return view('pages.backend.offers.index');
     }
 
     public function getIndexFrontend($prize_category_id){
         $offers = Offer::where('offer.prize_category_id', $prize_category_id)
                ->get();
-        return view('pages.frontend.offers.index', compact('offers'));
+        $contact_info = ContactInfo::find(1);
+        return view('pages.frontend.offers.index', compact('offers','contact_info'));
     }
     public function create()
     {
@@ -113,8 +114,8 @@ class OfferController extends Controller
     }
     public function destroy($id)
     {
-        $ticket = Offer::find($id);
-        $ticket->delete();
+        $offer = Offer::find($id);
+        $offer->delete();
 
         return redirect('/backend/offers')->with('success', 'Offer has been deleted!!');
     }

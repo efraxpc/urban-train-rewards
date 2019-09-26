@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -40,5 +41,30 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdministrator() {
         return $this->role == 'admin';
-     }
+    }
+    public function saveUser($data)
+    {
+        $this->name = $data['name'];
+        $this->last_name = $data['last_name'];
+        $this->email = $data['email'];
+        if( isset($data['points'])){
+            $this->points = $data['points'];
+        }
+        $this->password = Hash::make($data['password']);
+        $this->username = substr(md5(time()), 0, 10);
+        $this->save();
+        return 1;
+    }
+
+    public function updateUser($data)
+    {
+            $user = $this->find($data['id']);
+            $user->name = $data['name'];
+            $user->last_name = $data['last_name'];
+            $user->email = $data['email'];
+            $user->points = $data['points'];
+            $user->save();
+            return 1;
+    }
+    
 }

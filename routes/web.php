@@ -51,5 +51,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/read-offer-doc/{id}', 'HomeController@readOfferDoc')->middleware('verified');
 
 Route::get('/backend/users', 'UserController@getIndex');
+Route::get('/backend/create/user','UserController@create');
+Route::post('/backend/create/user','UserController@store');
+Route::get('/backend/edit/user/{id}','UserController@edit');
+Route::post('/backend/edit/user/{id}','UserController@update');
+Route::get('/backend/delete/user/{id}','UserController@destroy');
 
+Route::get('/backend/contact-information', 'ContactInformationController@getIndex');
+Route::post('/backend/contact-information','ContactInformationController@update');
 
+Route::get('/backend/wellcome-email-information', 'WellcomeEmailInfoController@getIndex');
+Route::post('/backend/wellcome-email-information','WellcomeEmailInfoController@update');

@@ -87,8 +87,8 @@ class RewardController extends Controller
 
     public function destroy($id)
     {
-        $ticket = Reward::find($id);
-        $ticket->delete();
+        $reward = Reward::find($id);
+        $reward->delete();
 
         return redirect('/backend/rewards')->with('success', 'Reward has been deleted!!');
     }
