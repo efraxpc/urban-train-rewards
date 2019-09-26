@@ -18,6 +18,5 @@ class DatabaseSeeder extends Seeder
         $this->call(OffersTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(MailchipInfoSeeder::class);
-        $this->call(ContactInfoSeeder::class);
     }
 }
