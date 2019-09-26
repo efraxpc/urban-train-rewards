@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class WellcomeEmailInfoSeeder extends Seeder
+class WellcomeEmailSeeder extends Seeder
 {
     /**
      * Run the database seeds.
