@@ -138,7 +138,7 @@
             
         </div>
         <!-- /row -->
-        <span>Refferal: <b>{{$refferal->getCompleteName()}}</b></span>
+        <span>Your refferal is <b>{{$refferal->getCompleteName()}}</b></span>
         
         {{-- <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p> --}}
  

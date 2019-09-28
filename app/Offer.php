@@ -22,8 +22,9 @@ class Offer extends Model
         $this->offer_worth = $data['offer_worth'];
         $this->offer_network = $data['offer_network'];
         $this->refferals = $data['refferals'];
-        
+        $this->prize_category_id = $data['prize_category'];
         $this->country_id = $data['country_id'];
+
         $this->save();
 
         return 1;
@@ -39,9 +40,11 @@ class Offer extends Model
         $offer->country_id = $data['country_id'];
         $offer->refferals = $data['refferals'];
         $offer->offer_network = $data['offer_network'];
+        $offer->prize_category_id = $data['prize_category'];
         if(isset($data['offer_image'])){
             $offer->offer_image = $data['reward_image'];
         }
+        
         $offer->save();
         return 1;
     }

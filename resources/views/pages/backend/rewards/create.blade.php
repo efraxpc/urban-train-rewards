@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <input type="hidden" value="{{csrf_token()}}" name="_token" />
                         <label for="title">Reward name:</label>
-                        <input type="text" class="form-control" name="reward_name" />
+                        <input type="text" class="form-control" name="reward_name" value="{{ old('reward_name') }}"/>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="reward_description">Reward description:</label>
-                        <textarea cols="5" rows="5" class="form-control" name="reward_description"></textarea>
+                        <textarea cols="5" rows="5" class="form-control" name="reward_description">{{ old('reward_description') }}</textarea>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="reward_worth">Reward worth:</label>
-                        <input cols="5" rows="5" class="form-control" name="reward_worth"></input>
+                        <input cols="5" rows="5" class="form-control" name="reward_worth" value="{{ old('reward_worth') }}"></input>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Reward type</label>
-                        <select class="form-control" name="reward_type">
+                        <select class="form-control" name="reward_type" value="{{ old('reward_type') }}">
                             @foreach($reward_types as $reward_type)
                             <option value="{{$reward_type->id}}">{{$reward_type->name}}</option>
                             @endforeach

@@ -155,7 +155,6 @@
 
    <!-- Sweet Alert -->
    <script type="text/javascript" src="{{ asset('assets/backend/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
-   <script type="text/javascript" src="{{ asset('dist/clipboard.min.js') }}"></script>
 
    <!-- Atlantis JS -->
    <script>

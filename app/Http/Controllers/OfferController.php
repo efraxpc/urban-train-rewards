@@ -57,7 +57,8 @@ class OfferController extends Controller
     public function create()
     {
         $countries = Country::all();
-        return view('pages.backend.offers.create', compact('countries'));
+        $prize_categories = PrizeCategory::All();
+        return view('pages.backend.offers.create', compact('countries','prize_categories'));
     }
     public function store(Request $request)
     {
@@ -71,7 +72,8 @@ class OfferController extends Controller
             'country_id'=> 'required',
             'offer_network'=>'required',
             'offer_image'=>'required',
-            'refferals'=> 'required|integer'
+            'refferals'=> 'required|integer',
+            'prize_category'=>'required'
         ]);
         $file_name = $request->offer_image->hashName();
         $file = $request->offer_image;
@@ -99,7 +101,8 @@ class OfferController extends Controller
             'offer_worth'=> 'required',
             'refferals'=> 'required|integer',
             'country_id'=> 'required',
-            'offer_network'=>'required'
+            'offer_network'=>'required',
+            'prize_category'=>'required'
         ]);
 
         $reward = new Offer();
