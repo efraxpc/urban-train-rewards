@@ -20,6 +20,10 @@
                         <a href="{{ url('/backend/offers') }}">
                             <i class="fas fa-columns fa-2x my-1"></i>
                         </a>
+                        @else
+                        <a href="{{ url('/dashboard') }}">
+                            <i class="fas fa-columns fa-2x my-1"></i>
+                        </a>
                         @endif
                     @endif
                     @auth

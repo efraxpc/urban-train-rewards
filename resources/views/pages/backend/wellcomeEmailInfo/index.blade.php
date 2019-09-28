@@ -60,5 +60,3 @@
     </div>
 </div>
 @endsection
-'pre_footer'=>'required',
-'footer'=>'required',

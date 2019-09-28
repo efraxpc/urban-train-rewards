@@ -72,6 +72,14 @@
 	<!-- COMMON SCRIPTS -->
     <script src="{{ asset('assets/frontend/js/common_scripts.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/functions.js') }}"></script>
-	<script src="{{ asset('assets/frontend/assets/validate.js') }}"></script>
+    <script src="{{ asset('assets/frontend/assets/validate.js') }}"></script>
+    <script src="{{ asset('assets/frontend/plugins/clipboard.js-master/dist/clipboard.js') }}"></script>
+
+    <script>
+            var clipboard = new ClipboardJS('.btn');
+            clipboard.on('success', function (e) {
+                console.log(e);
+            });
+    </script>
 </body>
 </html>

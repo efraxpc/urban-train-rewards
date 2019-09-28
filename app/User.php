@@ -18,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name', 'last_name', 'email', 'password','is_admin', 'role',
-        'username', 'points'
+        'username', 'points', 'refferal'
     ];
 
     /**
@@ -39,6 +39,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+
+
     public function isAdministrator() {
         return $this->role == 'admin';
     }
@@ -49,6 +51,9 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->email = $data['email'];
         if( isset($data['points'])){
             $this->points = $data['points'];
+        }
+        if( isset($data['refferal'])){
+            $this->refferal = $data['refferal'];
         }
         $this->password = Hash::make($data['password']);
         $this->username = substr(md5(time()), 0, 10);
@@ -65,6 +70,10 @@ class User extends Authenticatable implements MustVerifyEmail
             $user->points = $data['points'];
             $user->save();
             return 1;
+    }
+
+    public function getCompleteName(){
+        return $this->name.' '.$this->last_name;
     }
     
 }

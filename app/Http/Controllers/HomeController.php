@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\PrizeCategory;
 use App\Offer;
 use App\User;
+use App\Reward;
 use App\ContactInfo;
 use Auth;
 

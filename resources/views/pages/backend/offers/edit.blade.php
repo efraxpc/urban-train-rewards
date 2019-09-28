@@ -85,6 +85,14 @@
                 </div>
             </div>
             <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="refferals">Offer refferals:</label>
+                            <input cols="5" rows="5" class="form-control" name="refferals" value="{{$offer->refferals}}" type="number"></input>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
                 <div class="col-12">
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Update</button>

@@ -10,6 +10,11 @@ class Reward extends Model
         'reward_name', 'reward_description', 'reward_image', 'reward_worth', 'reward_type_id'
     ];
 
+    public function rewardsUser()
+    {
+        return $this->belongsTo('RewardsUser');
+    }
+
     public function saveReward($data,$file_name)
     {
         $this->reward_name = $data['reward_name'];

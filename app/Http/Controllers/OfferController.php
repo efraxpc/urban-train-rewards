@@ -70,7 +70,8 @@ class OfferController extends Controller
             'offer_worth'=> 'required',
             'country_id'=> 'required',
             'offer_network'=>'required',
-            'offer_image'=>'required'
+            'offer_image'=>'required',
+            'refferals'=> 'required|integer'
         ]);
         $file_name = $request->offer_image->hashName();
         $file = $request->offer_image;
@@ -96,9 +97,11 @@ class OfferController extends Controller
             'offer_long_description'=> 'required',
             'offer_link'=> 'required',
             'offer_worth'=> 'required',
+            'refferals'=> 'required|integer',
             'country_id'=> 'required',
             'offer_network'=>'required'
         ]);
+
         $reward = new Offer();
   
         if(isset($request->offer_image)){

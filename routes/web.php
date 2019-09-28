@@ -62,3 +62,8 @@ Route::post('/backend/contact-information','ContactInformationController@update'
 
 Route::get('/backend/wellcome-email-information', 'WellcomeEmailInfoController@getIndex');
 Route::post('/backend/wellcome-email-information','WellcomeEmailInfoController@update');
+
+Route::get('/dashboard','FrontendDashboardController@getIndex');
+Route::get('/refferal/{ref_id}','FrontendDashboardController@refferal');
+Route::get('/register/{ref_id}','FrontendDashboardController@register');
+Route::get('/register/refferal/{ref_id}','RegisterController@store');

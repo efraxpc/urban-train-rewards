@@ -9,7 +9,7 @@ class Offer extends Model
     protected $table = 'offer';
     protected $fillable = [
         'offer_name', 'offer_short_description', 'offer_long_description', 'offer_link', 
-        'offer_worth', 'country_id', 'offer_network', 'prize_category_id'
+        'offer_worth', 'country_id', 'offer_network', 'prize_category_id', 'refferals'
     ];
 
     public function saveOffer($data,$file_name)
@@ -21,6 +21,8 @@ class Offer extends Model
         $this->offer_link = $data['offer_link'];
         $this->offer_worth = $data['offer_worth'];
         $this->offer_network = $data['offer_network'];
+        $this->refferals = $data['refferals'];
+        
         $this->country_id = $data['country_id'];
         $this->save();
 
@@ -35,6 +37,7 @@ class Offer extends Model
         $offer->offer_link = $data['offer_link'];
         $offer->offer_worth = $data['offer_worth'];
         $offer->country_id = $data['country_id'];
+        $offer->refferals = $data['refferals'];
         $offer->offer_network = $data['offer_network'];
         if(isset($data['offer_image'])){
             $offer->offer_image = $data['reward_image'];

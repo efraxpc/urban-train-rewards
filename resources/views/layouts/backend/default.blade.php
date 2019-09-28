@@ -155,9 +155,9 @@
 
    <!-- Sweet Alert -->
    <script type="text/javascript" src="{{ asset('assets/backend/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+   <script type="text/javascript" src="{{ asset('dist/clipboard.min.js') }}"></script>
 
    <!-- Atlantis JS -->
-   <script type="text/javascript" src="{{ asset('assets/backend/js/atlantis.min.js') }}"></script>
    <script>
       $('#click-to-rewards').click(function () {
          window.location.href = '/backend/rewards'

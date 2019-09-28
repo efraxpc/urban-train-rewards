@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->integer('payout')->default('0');
             $table->string('ip_address')->default('127.0.0.1');
             $table->string('role')->default('user');
+            $table->string('refferal')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
