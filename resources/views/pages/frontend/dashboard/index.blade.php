@@ -123,13 +123,16 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Completed</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($user_rewards_obj as $user_reward)
-                    <tr>
-                        <td>{{$user_reward->reward_name}}</td>
-                        <td>{{ date('d/M/Y', strtotime($user_reward->created_at)) }}</td>
+
+                        <tr>
+                        <td>{{$user_reward['reward_name']}}</td>
+                        <td>{{ date('d/M/Y', strtotime($user_reward['created_at'])) }}</td>
+                        <td>@if ($user_reward['avaible'] == 1) Yes @else No @endif</td>
                     </tr>
                     @endforeach
                 </tbody>

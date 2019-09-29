@@ -7,6 +7,10 @@ use App\WellcomeEmailInfo;
 
 class WellcomeEmailInfoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function getIndex()
     {
         $wellcome_email_info = WellcomeEmailInfo::find(1);

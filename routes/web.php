@@ -27,7 +27,7 @@ Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/offers/{prize_category_id}', 'OfferController@getIndexFrontend');
 
 //Backend
-Route::get('/backend/rewards', 'RewardController@getIndex');
+Route::get('/backend/rewards', 'RewardController@getIndex')->name('rewards');
 Route::get('/backend/rewards/data', 'RewardController@anyData');
 Route::get('/backend/create/reward','RewardController@create');
 Route::post('/backend/create/reward','RewardController@store');
@@ -48,7 +48,7 @@ Route::post('/backend/mailchip-info','MailchipinfoController@update');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/read-offer-doc/{id}', 'HomeController@readOfferDoc')->middleware('verified');
+Route::get('/read-offer-doc/{offer_id}', 'HomeController@readOfferDoc')->middleware('verified');
 
 Route::get('/backend/users', 'UserController@getIndex');
 Route::get('/backend/create/user','UserController@create');
@@ -67,3 +67,14 @@ Route::get('/dashboard','FrontendDashboardController@getIndex');
 Route::get('/refferal/{ref_id}','FrontendDashboardController@refferal');
 Route::get('/register/{ref_id}','FrontendDashboardController@register');
 Route::get('/register/refferal/{ref_id}','RegisterController@store');
+
+
+Route::get('/backend/rewards_user', 'RewardUserController@getIndex');
+Route::get('/backend/rewards_user/data', 'RewardUserController@anyData');
+Route::get('/backend/create/rewards_user','RewardUserController@create');
+Route::post('/backend/create/rewards_user','RewardUserController@store');
+Route::get('/backend/edit/rewards_user/{id}','RewardUserController@edit');
+Route::post('/backend/edit/rewards_user/{id}','RewardUserController@update');
+Route::get('/backend/delete/rewards_user/{id}','RewardUserController@destroy');
+
+Route::get('/assing-offer-to-user/{offer_id}','FrontendDashboardController@assingOfferToUser')->name('assing-offer-to-user');

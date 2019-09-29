@@ -22,6 +22,7 @@ class Reward extends Model
         $this->reward_image = $file_name;
         $this->reward_worth = $data['reward_worth'];
         $this->reward_type_id = $data['reward_type'];
+        $this->offer_id = $data['offer'];
         $this->save();
 
         return 1;
@@ -33,6 +34,7 @@ class Reward extends Model
             $reward->reward_description = $data['reward_description'];
             $reward->reward_worth = $data['reward_worth'];
             $reward->reward_type_id = $data['reward_type'];
+            $reward->offer_id = $data['offer'];
             if(isset($data['reward_image'])){
                 $reward->reward_image = $data['reward_image'];
             }

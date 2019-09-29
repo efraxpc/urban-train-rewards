@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Reward;
 use App\RewardType;
+use App\Offer;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Storage;
 
 class RewardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getIndex()
     {
         if(request()->ajax()) {
@@ -35,7 +41,8 @@ class RewardController extends Controller
     public function create()
     {
         $reward_types = RewardType::all();
-        return view('pages.backend.rewards.create', compact('reward_types'));
+        $offers = Offer::all();
+        return view('pages.backend.rewards.create', compact('reward_types','offers'));
     }
     public function store(Request $request)
     {
@@ -46,6 +53,7 @@ class RewardController extends Controller
             'reward_image'=> 'required',
             'reward_worth'=> 'required',
             'reward_type'=> 'required',
+            'offer'=> 'required',
         ]);
         $file_name = $request->reward_image->hashName();
         $file = $request->reward_image;
@@ -53,14 +61,15 @@ class RewardController extends Controller
         $reward->saveReward($data, $file_name);
         
         Storage::disk('public')->put('images', $file);
-        return redirect('rewards')->with('success', 'Reward has been created!');
+        return redirect('backend/rewards')->with('success', 'Reward has been created!');
     }
     public function edit($id)
     {
         $reward = Reward::where('id', $id)
                         ->first();
+        $offers = Offer::all();
         $reward_types = RewardType::all();
-        return view('pages.backend.rewards.edit', compact('reward', 'reward_types', 'id'));
+        return view('pages.backend.rewards.edit', compact('reward', 'reward_types', 'offers', 'id'));
     }
     public function update(Request $request, $id)
     {
@@ -69,10 +78,10 @@ class RewardController extends Controller
             'reward_description'=> 'required',
             'reward_worth'=> 'required',
             'reward_type'=> 'required',
+            'offer'=> 'required',
         ]);
-        $data['id'] = $id;
         $reward = new Reward();
-        //dd($request);
+
         if(isset($request->reward_image)){
             $file_name = $request->reward_image->hashName();
             $file = $request->reward_image;

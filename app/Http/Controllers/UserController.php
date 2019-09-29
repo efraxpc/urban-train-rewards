@@ -7,6 +7,10 @@ use Yajra\Datatables\Datatables;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function getIndex()
     {
         if(request()->ajax()) {
@@ -70,7 +74,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-
         return redirect('/backend/users')->with('success', 'User has been deleted!!');
     }
 }

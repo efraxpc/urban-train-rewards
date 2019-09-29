@@ -99,6 +99,12 @@
                         <p>Wellcome email information</p>
                      </a>
                   </li>
+                  <li class="nav-item" id="click-to-rewards-user">
+                     <a data-toggle="collapse" class="collapsed" aria-expanded="false" href="#" role="button">
+                        <i class="fas fa-money-bill"></i>
+                        <p>Rewards per user</p>
+                     </a>
+                  </li>
             </div>
          </div>
       </div>
@@ -179,6 +185,10 @@
       $('#click-to-wellcome-email-information').click(function () {
          window.location.href = '/backend/wellcome-email-information'
       })
+      $('#click-to-rewards-user').click(function () {
+         window.location.href = '/backend/rewards_user'
+      })
+
       
    </script>
    @yield('scripts')

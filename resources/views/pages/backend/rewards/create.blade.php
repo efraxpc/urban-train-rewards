@@ -53,6 +53,18 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
+                        <label for="exampleFormControlSelect2">Offer</label>
+                        <select class="form-control" name="offer" value="{{ old('offer') }}">
+                            @foreach($offers as $offer)
+                                <option value="{{$offer->id}}">{{$offer->offer_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
                         <label for="reward_image">Reward image:</label>
                         <input type="file" id="reward_image" name="reward_image" accept="image/png, image/jpeg">
                     </div>

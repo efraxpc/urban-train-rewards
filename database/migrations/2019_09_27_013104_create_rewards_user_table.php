@@ -15,11 +15,9 @@ class CreateRewardsUserTable extends Migration
     {
         Schema::create('rewards_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('reward_id')->nullable();
-            $table->foreign('reward_id')->references('id')->on('rewards');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->tinyInteger('avaible');
+            $table->integer('reward_id')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->tinyInteger('avaible')->default(0);
             $table->timestamps();
         });
     }

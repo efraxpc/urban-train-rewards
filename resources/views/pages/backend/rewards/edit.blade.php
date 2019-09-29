@@ -49,6 +49,18 @@
                     @endforeach
                 </select>
             </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Offer</label>
+                    <select class="form-control" name="offer">
+                        @foreach($offers as $offer)
+                            <option value="{{$reward->id}}" @if ($reward->offer_id == $offer->id) selected @endif>{{$offer->offer_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
             <div class="row">
                     <div class="col-12">
                         <div class="form-group">

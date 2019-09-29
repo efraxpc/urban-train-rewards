@@ -6,6 +6,10 @@ use App\MailchipInfo;
 
 class MailchipinfoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function getIndex($prize_category_id = 0)
     {
         $mailchip_info = Mailchipinfo::where('id',1)->first();

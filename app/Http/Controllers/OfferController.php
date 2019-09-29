@@ -8,6 +8,7 @@ use App\Offer;
 use App\Country;
 use App\PrizeCategory;
 use App\ContactInfo;
+use DB;
 
 class OfferController extends Controller
 {
@@ -49,10 +50,25 @@ class OfferController extends Controller
     }
 
     public function getIndexFrontend($prize_category_id){
-        $offers = Offer::where('offer.prize_category_id', $prize_category_id)
-               ->get();
+        $user = auth()->user();
         $contact_info = ContactInfo::find(1);
-        return view('pages.frontend.offers.index', compact('offers','contact_info'));
+        $offers_query = DB::table('rewards')
+            ->join('offer', 'rewards.offer_id', '=', 'offer.id')
+            ->join('prize_category', 'prize_category.id', '=', 'offer.prize_category_id')
+            ->join('rewards_user', 'rewards_user.user_id', '=', 'rewards.id')
+            ->join('users', 'rewards_user.user_id', '=', 'users.id')
+            ->where('users.id','=',$user->id)
+            ->select('offer.*')
+            ->get();
+        $collection = collect($offers_query);
+        $offers = $collection->unique()->values()->all();
+        $user_has_offers = true;
+        if(is_null($user) || count($offers) == 0){
+            $offers = Offer::where('offer.prize_category_id', $prize_category_id)
+                ->get();
+            $user_has_offers = false;
+        }
+        return view('pages.frontend.offers.index', compact('offers','contact_info','user_has_offers'));
     }
     public function create()
     {

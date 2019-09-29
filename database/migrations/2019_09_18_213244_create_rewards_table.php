@@ -22,6 +22,7 @@ class CreateRewardsTable extends Migration
             $table->string('reward_worth');
             $table->unsignedBigInteger('reward_type_id');
             $table->foreign('reward_type_id')->references('id')->on('rewards_type');
+            $table->integer('offer_id');
             $table->timestamps();
         });
     }
