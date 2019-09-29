@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\User;
+
 class UserTableSeeder extends Seeder
 {
     /**
@@ -13,7 +15,12 @@ class UserTableSeeder extends Seeder
     {
         $count = 1;
         $this->command->info("Creating {$count} user.");
-        $rewards = factory(App\User::class, $count)->create();
+        $user_seed = factory(App\User::class, $count)->create();
+
+        $user = User::find(1);
+        $user->refferal = $user->username;
+        $user->save();
+
         $this->command->info('User Created!');
     }
 }
